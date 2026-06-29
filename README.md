@@ -12,7 +12,7 @@ The core of the project is an AI-assisted ETL pipeline generator:
 
 - **Extraction** — benchmarks four PDF table extractors per bank (docling / camelot / pdfplumber / text-layer) and picks the highest-scoring one
 - **Anonymization** — a PII guard strips real account numbers, names, and amounts before any data leaves the local machine; a format-preserving anonymizer replaces them with realistic-looking fakes
-- **Codegen** — a coding agent (opencode / Ollama / OpenRouter) writes the bank-specific `transform()` function from the anonymized sample
+- **Codegen** — a coding agent (opencode / Ollama / OpenRouter) writes the bank-specific `transform()` function from the anonymized sample, driven by a caller-supplied target schema (`{column: polars_dtype}`); the generated code is contractually required to produce a DataFrame with exactly those columns and types
 - **HITL review** — a human-in-the-loop step lets you approve or reject the generated code before it runs on real data
 - **Test + report** — generated code is executed in a sandbox; results are surfaced in an HTML report
 
