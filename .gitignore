@@ -1,0 +1,11 @@
+*
+!/**/
+!**/*.py
+!README.md
+.*
+!.gitignore
+expl.*
+
+# autogen opencode sandbox (per-run agent working dirs; keep only the README)
+src/autogen/sandbox/*
+!src/autogen/sandbox/README.md
